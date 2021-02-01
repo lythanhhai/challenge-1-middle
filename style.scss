@@ -1,0 +1,418 @@
+// Primary
+
+$DarkBlue: hsl(240, 38%, 20%);
+$GrayishBlue: hsl(240, 18%, 77%);
+
+$fontTitle :1.3rem;
+$fontText:0.9rem;
+$black :rgb(74,82,90);
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+  -webkit-appearance:none;
+}
+html {
+    font-size: 62.5%;
+  }
+  *
+  {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Spartan', sans-serif;
+  }
+  body {
+    font-family: 'Spartan', sans-serif;
+  }
+
+  @mixin size($width, $height) {
+    width: $width;
+    height: $height;
+  }
+  @mixin flexCen($align, $just, $wrap, $direct) {
+    display: flex;
+    align-items: $align;
+    justify-content: $just;
+    flex-wrap: $wrap;
+    flex-direction: $direct;
+  }
+
+  .background
+  {
+      &__imageDesk
+      {
+          @include size(100%,6rem);
+          object-fit: cover;
+          background-color: rgb(93,165,164);
+      }
+      &__imageMobi
+      {
+        display: none;
+      }
+  }
+
+  .container
+  {
+      @include size(100%,100rem);
+      background-color: rgb(240,250,251);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      &__form
+      {
+        margin-bottom: 10rem;
+        .search
+        {
+            @include size(50rem,4rem);
+            margin:2rem 0;
+            padding-left: 1rem;
+            position: absolute;
+            top:0%;
+            left:50%;
+            transform: translate(-50%,25%);
+            
+        }
+        .remove
+        {
+            position: absolute;
+            top:4.45%;
+            left: 100%;
+            transform: translate(-900%,-10%);
+            color:rgb(143,189,188);
+            
+        }
+      }
+      &__list
+      {
+          display: flex;
+          flex-direction: column;
+          &-item
+          {
+              @include size(60rem,7rem);
+              background-color: white;
+              margin-bottom: 2rem;
+              display: flex;
+              justify-content: start;
+              align-items: center;
+              border-radius: 0.6rem;
+              transition: all 0.25s linear;
+              &:hover,&:active,&:visited
+              {
+                 border-left: 3px solid rgb(58, 106, 107);
+                 box-shadow: 6px 0 14px 2px rgb(109, 191, 192);
+              }
+              .avatar
+              {
+                  @include size(5rem,5rem);
+                  object-fit: cover;
+                  margin:0 3rem;
+              }
+              .info
+              {
+                  .title
+                  {
+                      color:rgb(143,189,188);
+                      margin-bottom: 1.3rem;
+                      span:first-child
+                      {
+                        padding:0.4rem 0.6rem;
+                        color:rgb(209,239,237);
+                        background-color: rgb(92,164,165);
+                        border-radius: 1rem;
+                        margin-right: 0.4rem;
+                        cursor: pointer;
+                      }
+                      span:last-child
+                      {
+                        padding:0.4rem 0.6rem;
+                        color:rgb(209,239,237);
+                        background-color:rgb(45,57,57);
+                        border-radius: 1rem;
+                        cursor: pointer;
+                      }
+                  }
+                  .nameJob
+                  {
+                    color: rgb(68,78,77);
+                    margin-bottom: 0.6rem;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: all 0.1s ease-in;
+                    &:hover
+                    {
+                     color:rgb(112,167,162);
+                    }
+                  }
+                  .more
+                  {
+                    color: rgb(187,193,193);
+                    font-size: 0.8rem;
+                    span:first-child
+                    {
+                      margin:0 1rem;
+                      position: relative;
+                      &::before
+                      {
+                          content: "";
+                          position: absolute;
+                          top:50%;
+                          transform: translate(-350%,-50%);
+                          @include size(0.2rem,0.2rem);
+                          border-radius: 50%;
+                          background-color: rgb(187,193,193);
+
+                      }
+                    }
+                    span:last-child
+                    {
+                      position: relative;
+                      &::before
+                      {
+                          content: "";
+                          position: absolute;
+                          top:50%;
+                          transform: translate(-300%,-50%);
+                          @include size(0.2rem,0.2rem);
+                          border-radius: 50%;
+                          background-color: rgb(187,193,193);
+
+                      }
+                    }
+                  }
+
+              }
+              .category
+              {
+                  display: flex;
+                  margin-left: auto;
+                  .button
+                  {
+                      margin-left: 1.3rem;
+                      background-color: rgb(238,246,246);
+                      color: rgb(112,167,162);
+                      font-weight: 600;
+                      outline: none;
+                      padding:0.6rem 0.4rem;
+                      border: 1px solid transparent;
+                      border-radius: 0.4rem;
+                      cursor: pointer;
+                      transition:all 0.20s linear;
+                  }
+                  .button:last-child
+                  {
+                      margin-right: 1.5rem;
+                  }
+                  button:hover
+                  {
+                      color:rgb(238,246,246) ;
+                      background-color: rgb(112,167,162);
+                      transform: scale(1.1);
+                      box-shadow: 0 0 6px 1px rgb(112,167,162);
+                  }
+              }
+          }
+      }
+  }
+
+  @media screen and (max-width:767px)
+  {
+    .background
+    {
+        &__imageMobi
+        {
+            @include size(100%,4rem);
+            object-fit: cover;
+            background-color: rgb(93,165,164);
+        }
+        &__imageDesk
+        {
+          display: none;
+        }
+    }
+  
+    .container
+    {
+        @include size(100%,150rem);
+        background-color: rgb(240,250,251);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        &__form
+        {
+          margin-bottom: 10rem;
+          .search
+          {
+              @include size(12rem,3rem);
+              margin:2rem 0;
+              padding-left: 1rem;
+              position: absolute;
+              top:0%;
+              left:50%;
+              transform: translate(-50%,25%);
+              font-size: 0.4rem;
+          }
+          .remove
+          {
+              position: absolute;
+              top:4.45%;
+              left: 100%;
+              transform: translate(-570%,-708%);
+              color:rgb(143,189,188);
+              font-size: 0.4rem;
+          }
+        }
+        &__list
+        {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin: 50rem auto 0; 
+            &-item
+            {
+                @include size(95%,17rem);
+                background-color: white;
+                
+                display: flex;
+                flex-direction: column;
+                justify-content: start;
+                align-items: center;
+                border-radius: 0.6rem;
+                transition: all 0.25s linear;
+                text-align: center;
+                margin:0 auto 2rem;
+                position: relative;
+                &:hover,&:active,&:visited
+                {
+                   border-left: 3px solid rgb(58, 106, 107);
+                   box-shadow: 6px 0 14px 2px rgb(109, 191, 192);
+                }
+                .avatar
+                {
+                    @include size(3rem,3rem);
+                    object-fit: cover;
+                    margin:0 3rem;
+                    position: absolute;
+                    top:0;
+                    left:0;
+                    transform: translate(-60%,-50%);
+                }
+                .info
+                {
+                    .title
+                    {
+                        color:rgb(143,189,188);
+                        margin:2rem 0 1.3rem;
+                        span:first-child
+                        {
+                          padding:0.4rem 0.6rem;
+                          color:rgb(209,239,237);
+                          background-color: rgb(92,164,165);
+                          border-radius: 1rem;
+                          margin-right: 0.4rem;
+                          cursor: pointer;
+                        }
+                        span:last-child
+                        {
+                          padding:0.4rem 0.6rem;
+                          color:rgb(209,239,237);
+                          background-color:rgb(45,57,57);
+                          border-radius: 1rem;
+                          cursor: pointer;
+                        }
+                    }
+                    .nameJob
+                    {
+                      color: rgb(68,78,77);
+                      margin-bottom: 0.6rem;
+                      font-size: 1.1rem;
+                      font-weight: 600;
+                      cursor: pointer;
+                      transition: all 0.1s ease-in;
+                      &:hover
+                      {
+                       color:rgb(112,167,162);
+                      }
+                    }
+                    .more
+                    {
+                      color: rgb(187,193,193);
+                      font-size: 0.8rem;
+                      span:first-child
+                      {
+                        margin:0 1rem;
+                        position: relative;
+                        &::before
+                        {
+                            content: "";
+                            position: absolute;
+                            top:50%;
+                            transform: translate(-350%,-50%);
+                            @include size(0.2rem,0.2rem);
+                            border-radius: 50%;
+                            background-color: rgb(187,193,193);
+  
+                        }
+                      }
+                      span:last-child
+                      {
+                        position: relative;
+                        &::before
+                        {
+                            content: "";
+                            position: absolute;
+                            top:50%;
+                            transform: translate(-300%,-50%);
+                            @include size(0.2rem,0.2rem);
+                            border-radius: 50%;
+                            background-color: rgb(187,193,193);
+  
+                        }
+                      }
+                    }
+  
+                }
+                .category
+                {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    flex-wrap: wrap;
+                    margin-top: 2rem;
+                    margin-right: auto;
+                    .button
+                    {
+                        margin-left: 1.3rem;
+                        background-color: rgb(238,246,246);
+                        color: rgb(112,167,162);
+                        font-weight: 600;
+                        outline: none;
+                        padding:0.6rem 0.4rem;
+                        border: 1px solid transparent;
+                        border-radius: 0.4rem;
+                        cursor: pointer;
+                        transition:all 0.20s linear;
+                        margin-bottom: 0.4rem;
+                    }
+                    .button:last-child
+                    {
+                        margin-right: 1.5rem;
+                    }
+                    button:hover
+                    {
+                        color:rgb(238,246,246) ;
+                        background-color: rgb(112,167,162);
+                        transform: scale(1.1);
+                        box-shadow: 0 0 6px 1px rgb(112,167,162);
+                    }
+                }
+            }
+        }
+    }
+  
+  }
