@@ -7,10 +7,7 @@ const list = document.querySelector(".container__list");
 const remove = document.getElementById("remove1");
 
 
-if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
-// console.log("1");
- }
- else {
+
      
      input.addEventListener('keypress',function()
      {
@@ -50,7 +47,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
          item[arritem[0]].style.marginTop = "-37rem";
          // console.log(item[0].button[0].getAttribute("data-role"));
      });
- }
+
 
 remove.addEventListener("click",function(){
   input.value = "";
